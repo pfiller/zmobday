@@ -52,22 +52,27 @@
       border-spacing: 0;
     }
 
-    body { cursor: pointer; background: white; text-align: center; font-family: Helvetica, sans-serif; }
-    h1 { font-size: 2em; margin: 50px 0 30px; }
-    .person-name { color: red; }
-    .image-container { width: 100%; }
-    .next-person { font-size: 1.25em; margin-top: 25px; }
-
+    html { height: 100%; margin: 0; padding: 0; }
     body {
+      cursor: pointer; background: white; text-align: center; font-family: Helvetica, sans-serif;
+      height: 100%;
+      margin: 0; padding: 0;
       -webkit-user-select: none; /* webkit (safari, chrome) browsers */
       -moz-user-select: none; /* mozilla browsers */
       -khtml-user-select: none; /* webkit (konqueror) browsers */
       -ms-user-select: none; /* IE10+ */
     }
 
+    h1 { font-size: 2em; margin: 0 0 30px; }
+    .person-name { color: red; }
+    .image-container { width: 100%; }
+    .next-person { font-size: 1.25em; margin-top: 25px; }
+    .all-of-it {  position: relative; top: 50%; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+
   </style>
 </head>
 <body>
+  <div class="all-of-it">
     <h1></h1>
     <div class="image-container"><img src="" class="person-gif" /></div>
     <p class="next-person js-next-person">Click to see what <strong class="person-next"></strong> says about it!</p>
