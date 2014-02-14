@@ -68,7 +68,7 @@
   </style>
 </head>
 <body>
-    <h1>Tomorrow is Zach's birthday and <span class="person-name"></span> is HAPPY</h1>
+    <h1></h1>
     <div class="image-container"><img src="" class="person-gif" /></div>
     <p class="next-person js-next-person">Click to see what <strong class="person-next"></strong> says about it!</p>
   </div>
@@ -76,6 +76,23 @@
   <audio src="music/happy.mp3" autobuffer autoplay loop></audio>
 
   <script>
+    var header = document.querySelector("h1"),
+        now = new Date(),
+        bday = new Date(now.getFullYear(), 1, 15, 12);
+
+    if(now.toDateString() === bday.toDateString){
+      header.innerHTML = 'It’s Zach’s birthday and <span class="person-name"></span> is HAPPY';
+    }
+    else{
+      now.setDate(now.getDate()+1);
+      if(now.toDateString() === bday.toDateString){
+        header.innerHTML = 'Tomorrow is Zach’s birthday and <span class="person-name"></span> is HAPPY';
+      }
+      else{
+        header.innerHTML = 'It’s not Zach’s birthday, but <span class="person-name"></span> is still HAPPY';
+      }
+    }
+
     var happy_people = [
       { name: "Alanna", gif: "alanna-updated-48fps.gif" },
       { name: "Albert", gif: "albert-cat-48fps.gif" },
