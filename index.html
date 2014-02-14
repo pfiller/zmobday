@@ -52,11 +52,18 @@
       border-spacing: 0;
     }
 
-    body { text-align: center; font-family: Helvetica, sans-serif; }
+    body { cursor: pointer; background: white; text-align: center; font-family: Helvetica, sans-serif; }
     h1 { font-size: 2em; margin: 50px 0 30px; }
     .person-name { color: red; }
-    .image-container { width: 100%; background: #333; }
+    .image-container { width: 100%; }
     .next-person { font-size: 1.25em; margin-top: 25px; }
+
+    body {
+      -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+      -moz-user-select: none; /* mozilla browsers */
+      -khtml-user-select: none; /* webkit (konqueror) browsers */
+      -ms-user-select: none; /* IE10+ */
+    }
 
   </style>
 </head>
