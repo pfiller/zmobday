@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <title>Raindrops</title>
+  <style type="text/css">
+    /* http://meyerweb.com/eric/tools/css/reset/
+       v2.0 | 20110126
+       License: none (public domain)
+    */
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+    body {
+      line-height: 1.25;
+    }
+    ol, ul {
+      list-style: none;
+    }
+    blockquote, q {
+      quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    body { text-align: center; font-family: Helvetica, sans-serif; }
+    h1 { font-size: 2em; margin: 50px 0 30px; }
+    .person-name { color: red; }
+    .image-container { width: 100%; background: #333; }
+    .next-person { font-size: 1.25em; margin-top: 25px; }
+
+  </style>
+</head>
+<body>
+    <h1>Tomorrow is Zach's birthday and <span class="person-name"></span> is HAPPY</h1>
+    <div class="image-container"><img src="" class="person-gif" /></div>
+    <p class="next-person js-next-person">Click to see what <strong class="person-next"></strong> says about it!</p>
+  </div>
+
+  <audio src="music/happy.mp3" autobuffer autoplay loop></audio>
+
+  <script>
+    var happy_people = [
+      { name: "Alanna", gif: "alanna-updated-48fps.gif" },
+      { name: "Albert", gif: "albert-cat-48fps.gif" },
+      { name: "Andrew", gif: "andrew-smaller-file-size.gif" },
+      { name: "Arun", gif: "arun-happy-shuffle.gif" },
+      { name: "Barry", gif: "barry_dance_for_zach_48fps.gif" },
+      { name: "Calina and Christopher", gif: "cgwcm.gif" },
+      { name: "Doug", gif: "da_club.gif" },
+      { name: "T.J.", gif: "happy-spin.gif" },
+      { name: "Ken", gif: "ken-face.gif" },
+      { name: "Lettini", gif: "lettini-happy6.gif" },
+      { name: "Shawn", gif: "shawn.gif" },
+      { name: "Evan", gif: "square-face.gif" },
+      { name: "Sri", gif: "sri-happy-face.gif" },
+      { name: "Warwick", gif: "warwick.gif" },
+    ];
+    happy_people.sort(function() {return 0.5 - Math.random()});
+
+    var
+      name_spot = document.querySelector(".person-name"),
+      gif_spot = document.querySelector("img"),
+      next_spot = document.querySelector(".person-next");
+
+    var current = 0;
+    function show_happy(){
+      var now_happy = happy_people[current];
+
+      name_spot.innerHTML = now_happy.name;
+      gif_spot.src = "gifs/" + now_happy.gif;
+
+      current += 1;
+      if(current > happy_people.length - 1){ current = 0; }
+
+      next_spot.innerHTML = happy_people[current].name;
+    }
+    show_happy();
+
+    document.querySelector("body").addEventListener("click", show_happy);
+
+  </script>
+</body>
+</html>
