@@ -85,12 +85,12 @@
         now = new Date(),
         bday = new Date(now.getFullYear(), 1, 15, 12);
 
-    if(now.toDateString() === bday.toDateString){
+    if(now.toDateString() === bday.toDateString()){
       header.innerHTML = 'It’s Zach’s birthday and <span class="person-name"></span> is HAPPY';
     }
     else{
       now.setDate(now.getDate()+1);
-      if(now.toDateString() === bday.toDateString){
+      if(now.toDateString() === bday.toDateString()){
         header.innerHTML = 'Tomorrow is Zach’s birthday and <span class="person-name"></span> is HAPPY';
       }
       else{
