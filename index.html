@@ -120,17 +120,30 @@
     ];
     happy_people.sort(function() {return 0.5 - Math.random()});
 
+    var i;
+    for(i=0; i<happy_people.length; i+=1){
+      var person = happy_people[i];
+      person.image = document.createElement("img");
+      person.image.src = "gifs/" + person.gif
+    }
+
     var
       name_spot = document.querySelector(".person-name"),
       gif_spot = document.querySelector(".image-container"),
       next_spot = document.querySelector(".person-next");
 
-    var current = 0;
+    var current = 0, current_image = null;
     function show_happy(){
       var now_happy = happy_people[current];
 
       name_spot.innerHTML = now_happy.name;
-      gif_spot.innerHTML = '<img src="gifs/'+now_happy.gif+'" class="person-gif" />';
+      if(current_image){
+        gif_spot.replaceChild(now_happy.image, current_image);
+      }
+      else{
+        gif_spot.appendChild(now_happy.image);
+      }
+      current_image = now_happy.image;
 
       current += 1;
       if(current > happy_people.length - 1){ current = 0; }
