@@ -74,7 +74,7 @@
 <body>
   <div class="all-of-it">
     <h1></h1>
-    <div class="image-container"><img src="" class="person-gif" /></div>
+    <div class="image-container"></div>
     <p class="next-person js-next-person">Click to see what <strong class="person-next"></strong> says about it!</p>
   </div>
 
@@ -118,7 +118,7 @@
 
     var
       name_spot = document.querySelector(".person-name"),
-      gif_spot = document.querySelector("img"),
+      gif_spot = document.querySelector(".image-container"),
       next_spot = document.querySelector(".person-next");
 
     var current = 0;
@@ -126,7 +126,7 @@
       var now_happy = happy_people[current];
 
       name_spot.innerHTML = now_happy.name;
-      gif_spot.src = "gifs/" + now_happy.gif;
+      gif_spot.innerHTML = '<img src="gifs/'+now_happy.gif+'" class="person-gif" />';
 
       current += 1;
       if(current > happy_people.length - 1){ current = 0; }
